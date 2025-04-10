@@ -4,8 +4,31 @@
  */
 const express = require('express');
 const cors = require('cors');
+//ENV
+require('dotenv').config();
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3500;
+
+
+//Databasanslutning
+const mysql = require("mysql");
+
+const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME   
+});
+
+connection.connect((error) => {
+    if (error) {
+        console.error("Connection failed " + error);
+        return;
+    } else {
+        console.log("Connected to mysql");
+    }
+});
 
 // Använd JSON-data i anropen
 app.use(express.json());
@@ -34,6 +57,7 @@ app.post('/api/users', (req, res) => {
 app.put('/api/users/:id', (req, res) => {
     res.json({ message: 'PUT request to /users - with id: ' + req.params.id });
 });
+
 
 // DELETE /api/users/:id
 app.delete('/api/users/:id', (req, res) => {
