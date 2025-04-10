@@ -13,9 +13,12 @@ Dessa "endpoints" används:
 * GET: 	http://localhost:3000/api/ 						-> Returnerar hälsningsfras
 * GET: 	http://localhost:3000/api/users 				-> Returnera array med användare
 * POST: 	http://localhost:3000/api/users 			-> Lägg till användare
-* PUT: 	http://localhost:3000/api/users/:id			-> Uppdatera en befintig användare
-* DELETE: http://localhost:3000/api/users/:id	-> Radera en användare
+* PUT: 	http://localhost:3000/api/users/:id			    -> Uppdatera en befintig användare
+* DELETE: http://localhost:3000/api/users/:id	        -> Radera en användare
 Om någon annan route än ovan anropas ges ett felmeddelande som svar.
 
 ## Av
 Av Mattias Dahlgren, Mittuniversitetet, mattias.dahlgren@miun.se
+
+### Används av
+Torbjörn Lundberg, student webbutveckling 120 p på Mittuniversitet, tolu2403@student.miun.se    

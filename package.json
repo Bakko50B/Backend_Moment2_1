@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "serve": "node server.js"
+    "serve": "nodemon server.js"
   },
   "keywords": [],
   "author": "Mattias Dahlgren",
@@ -15,6 +15,6 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
-    "devmon": "^0.0.1"
+    "nodemon": "^3.1.9"
   }
 }

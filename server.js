@@ -17,7 +17,7 @@ app.use(cors());
 
 // GET /api
 app.get('/api', (req, res) => {
-    res.json({ message: 'Welcome to my REST API' });
+    res.json({ message: 'Welcome to my copied REST API' });
 });
 
 // GET /api/users
