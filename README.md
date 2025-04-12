@@ -8,7 +8,7 @@ Direkt efter att repot klonas behöver kommandot
 
 ### Databas
 Som bas finns en mysql databas för hantering av datat.  
-Du behöver en lokal webbserver som kan köra mysql.
+Du behöver en lokal webbserver som kan köra mysql.  
 Databasens namn är cv.  
 Tabellen som databasen använder skapas via kod i filen install.js  
 För att få den att fungera så behöver du justera .envfilen för att skriva in rätt uppgifter för:   
