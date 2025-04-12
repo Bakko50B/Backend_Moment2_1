@@ -7,15 +7,15 @@ Direkt efter att repot klonas behöver kommandot
 **npm install** köras.
 
 ### Databas
-Som bas finns en mysql databas för hantering av datat.
+Som bas finns en mysql databas för hantering av datat.  
 Du behöver en lokal webbserver som kan köra mysql.
-Databasens namn är cv.
-Tabellen som databasen använder skapas via kod i filen install.js
-För att få den att fungera så behlver du justera .envfilen för att skriva in rätt uppgifter för 
+Databasens namn är cv.  
+Tabellen som databasen använder skapas via kod i filen install.js  
+För att få den att fungera så behöver du justera .envfilen för att skriva in rätt uppgifter för:   
 * host
 * user
 * password
-* name (på databasen) 
+* name (på databasen)   
 OBS! Det ät viktigt att den heter cv eftersom det namnet används i koden
 
 För att installera databasen kör:
