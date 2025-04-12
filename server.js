@@ -31,7 +31,7 @@ app.use(cors());                    // Aktivera CORS middleware för alla rutter
 
 /** ------ Rutter (Routes) ------ */
 // GET /api
-app.get('/api', (req, res) => {
+app.get('/api/workexp', (req, res) => {
         //Get cv
     connection.query('SELECT * FROM workexp', (error, results) => {
         if (error) {
@@ -55,7 +55,7 @@ app.get('/api/users', (req, res) => {
 });
 
 // POST /api/users
-app.post('/api', (req, res) => {
+app.post('/api/workexp', (req, res) => {
     let companyname = req.body.companyname;
     let jobtitle = req.body.jobtitle;
     let location = req.body.location;
