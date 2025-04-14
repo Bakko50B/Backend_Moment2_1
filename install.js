@@ -27,17 +27,6 @@ connection.query("CREATE DATABASE IF NOT EXISTS cv", (error, results) => {
     }
 });
 
-// connection.query("CREATE TABLE IF NOT EXISTS `cv`.`workexp` (`id` INT NOT NULL AUTO_INCREMENT , `companyname` INT(64) NOT NULL , `jobtitle` INT(64) NOT NULL , `location` INT(64) NOT NULL , `startdate` INT NOT NULL , `enddate` INT NULL , `description` INT NULL , `postcreated` INT NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;;", 
-//     (error, result) => {
-//         if (error) {
-//             throw error;
-//         }
-//         else {
-//             console.log("Database table created");
-//         }
-//     }
-// );
-
 connection.query(`
     CREATE TABLE IF NOT EXISTS cv.workexp (
         id INT NOT NULL AUTO_INCREMENT,
@@ -45,8 +34,8 @@ connection.query(`
         jobtitle VARCHAR(64) NOT NULL,
         location VARCHAR(64) NOT NULL,
         startdate DATE NOT NULL,
-        enddate DATE NULL,
-        description TEXT NULL,
+        enddate DATE NULL DEFAULT NULL,
+        description TEXT NULL DEFAULT NULL,
         postcreated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id)
     ) ENGINE = InnoDB 
@@ -60,6 +49,17 @@ connection.query(`
         console.log('Database table created');
     }
 });
+
+connection.query(`
+    ALTER TABLE cv.workexp MODIFY enddate DATE NULL DEFAULT NULL;
+  `, (error, results) => {
+    if (error) {
+      console.error('Fel vid körning av ALTER TABLE:', error);
+      return;
+    }
+    console.log('Tabellen uppdaterades:', results);
+  });
+  
 
 // Kör INSERTS till tabellen
 connection.query(
