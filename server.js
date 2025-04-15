@@ -61,6 +61,27 @@ app.get('/api/workexp', (req, res) => {
     });
 });
 
+//Rutt för en enskild post
+// GET /api/workexp/:id
+app.get('/api/workexp/:id', (req, res) => {
+    const workExpId = req.params.id;
+
+    const query = `SELECT * FROM workexp WHERE id = ?`;
+    connection.query(query, [workExpId], (error, results) => {
+        if (error) {
+            console.error("Ett fel inträffade vid hämtning:", error);
+            res.status(500).json({ error: "Serverfel vid hämtning av data" });
+            return;
+        }
+
+        if (results.length === 0) {
+            res.status(404).json({ error: `Ingen post med ID ${workExpId} hittades` });
+            return;
+        }
+        res.json(results[0]); // Skicka tillbaka första (och enda) raden från databasen
+    });
+});
+
 // Rutt för att införa ny arbetserfarenhet
 // POST /api/workexp
 app.post('/api/workexp', (req, res) => {
