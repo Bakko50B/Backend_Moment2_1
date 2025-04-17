@@ -55,7 +55,7 @@ app.get('/api/workexp', (req, res) => {
                 res.status(404).json({ message: "No workexperience found!" });
             }
             else {
-                res.json(results);
+                res.status(200).json(results);
             }
         }
     });
@@ -69,16 +69,16 @@ app.get('/api/workexp/:id', (req, res) => {
     const query = `SELECT * FROM workexp WHERE id = ?`;
     connection.query(query, [workExpId], (error, results) => {
         if (error) {
-            console.error("Ett fel inträffade vid hämtning:", error);
-            res.status(500).json({ error: "Serverfel vid hämtning av data" });
+            console.error("Something went wrong:", error);
+            res.status(500).json({ error: "Error fetrching data" });
             return;
         }
 
         if (results.length === 0) {
-            res.status(404).json({ error: `Ingen post med ID ${workExpId} hittades` });
+            res.status(404).json({ error: `No post with ID ${workExpId} found` });
             return;
         }
-        res.json(results[0]); // Skicka tillbaka första (och enda) raden från databasen
+        res.status(200).json(results[0]); // Skicka tillbaka första (och enda) raden från databasen
     });
 });
 
@@ -128,7 +128,7 @@ app.post('/api/workexp', (req, res) => {
                     description: description
                 };
 
-                res.json({ message: "New workexperience added", data: workexperience });
+                resstatus(200).json({ message: "New workexperience added", data: workexperience });
             }
         });
 });
@@ -177,7 +177,7 @@ app.put('/api/workexp/:id', (req, res) => {
             return;
         } else {
             if (results.affectedRows > 0) {
-                res.json({
+                res.status(200).json({
                     message: `Post with id ${workExpId} has been updated.`,
                     data: {
                         companyname: companyname,
@@ -207,7 +207,7 @@ app.delete('/api/workexp/:id', (req, res) => {
             res.status(500).json({ message: 'An error occurred during delete.' });
         } else {
             if (results.affectedRows > 0) {
-                res.json({ message: `Post with id ${workExpId} has been deleted.` });
+                res.status(200).json({ message: `Post with id ${workExpId} has been deleted.` });
             } else {
                 res.status(404).json({ message: `No post with ${workExpId} found.` });
             }
