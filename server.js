@@ -41,6 +41,12 @@ app.get('/api/', (req, res) => {
     res.json({ message: 'Detta är ett API producerat för kursen Backendutveckling på mittuniversitet<br>Av Torbjörn Lundberg' });
 });
 
+// Omvandling av datumet till en korrekt textsträng
+const formatToLocalTime = (date) => {
+    return new Date(date).toLocaleDateString('sv-SE', { timeZone: 'Europe/Stockholm' });
+};
+
+
 // Rutt för att hämta arbetserfarenhet
 // GET /api/workexp
 app.get('/api/workexp', (req, res) => {
@@ -55,7 +61,14 @@ app.get('/api/workexp', (req, res) => {
                 res.status(404).json({ message: "No workexperience found!" });
             }
             else {
-                res.status(200).json(results);
+
+                const formattedResults = results.map(row => ({
+                    ...row,
+                    startdate: formatToLocalTime(row.startdate),
+                    enddate: formatToLocalTime(row.enddate)
+                }));
+                console.log("data:", formattedResults)
+                res.status(200).json(formattedResults);
             }
         }
     });
@@ -78,7 +91,13 @@ app.get('/api/workexp/:id', (req, res) => {
             res.status(404).json({ error: `No post with ID ${workExpId} found` });
             return;
         }
-        res.status(200).json(results[0]); // Skicka tillbaka första (och enda) raden från databasen
+        const formattedResult = {
+            ...results[0],
+            startdate: formatToLocalTime(results[0].startdate),
+            enddate: formatToLocalTime(results[0].enddate)
+        };
+
+        res.status(200).json(formattedResult);
     });
 });
 
