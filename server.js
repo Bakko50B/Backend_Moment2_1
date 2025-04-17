@@ -128,7 +128,7 @@ app.post('/api/workexp', (req, res) => {
                     description: description
                 };
 
-                resstatus(200).json({ message: "New workexperience added", data: workexperience });
+                res.status(200).json({ message: "New workexperience added", data: workexperience });
             }
         });
 });
