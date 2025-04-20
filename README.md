@@ -19,7 +19,7 @@ För att få den att fungera så behöver du justera .envfilen för att skriva i
 * user
 * password
 * name (på databasen)   
-OBS! Det ät viktigt att den heter cv eftersom det namnet används i koden
+OBS! Det är viktigt att den heter cv eftersom det namnet används i koden
 
 #### Databasstruktur
 id - int pk auto_increment  
@@ -41,11 +41,12 @@ Starta sedan applikationen med:
 ## Routes
 Dessa "endpoints" används:
 * GET: 	http://localhost:3000/api/ 						-> Returnerar hälsningsfras
-* GET: 	http://localhost:3000/api/workexp				-> Returnera array av arbetslivserfarenhet från anställingar
-* GET: 	http://localhost:3000/api/workexp/:id		    -> Returnera post[id] av arbetslivserfarenhet från anställingar
+* GET: 	http://localhost:3000/api/workexp				-> Returnera array av arbetslivserfarenhet
+* GET: 	http://localhost:3000/api/workexp/:id		    -> Returnera posten med :id från arreyen med arbetslivserfarenhet 
 * POST: http://localhost:3000/api/workexp 			    -> Lägg till arbetslivserfarenhet
-* PUT: 	http://localhost:3000/api/workexp/:id			-> Uppdatera en arbetslivserfarenhet användare
-* DELETE: http://localhost:3000/api/workexp/:id	        -> Radera en aarbetslivserfarenhet
+* PUT: 	http://localhost:3000/api/workexp/:id			-> Uppdatera en arbetslivserfarenhet
+* DELETE: http://localhost:3000/api/workexp/:id	        -> Radera en arbetslivserfarenhet  
+
 Om någon annan route än ovan anropas ges ett felmeddelande som svar.
 
 ## Av
