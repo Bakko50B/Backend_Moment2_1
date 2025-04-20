@@ -7,8 +7,8 @@ Direkt efter att repot klonas behöver kommandot
 **npm install** köras.
 
 ## Skalet används i Moment 2_1 i Backendkursen i programmet WEBBPROGRAMMERING  
-Fungerar somen API server
-    
+Fungerar som en server för ett REST API
+
 ### Databas
 Som bas finns en mysql databas för hantering av datat.  
 Du behöver en lokal webbserver som kan köra mysql.  
@@ -26,10 +26,10 @@ id - int pk auto_increment
 companyname varchar(64) NOT NULL  
 jobtitle vachar(64) NOT NULL  
 location varchar(64) NOT NULL  
-startdate date NOT NULL 
-enddate date NULL
-description text NULL    
-postcreated timestamp NOT NULL
+startdate date NOT NULL   
+enddate date NULL  
+description text NULL      
+postcreated timestamp NOT NULL  
 
 ## Ibstallation av DB
 För att installera databasen kör:
