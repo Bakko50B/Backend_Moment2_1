@@ -6,7 +6,7 @@ Cors används för att tillåta alla anrop från alla domäner (fungerar ok som 
 Direkt efter att repot klonas behöver kommandot
 **npm install** köras.
 
-## Skalet används i Moment 2_1 i Backendkursen i programmet WEBBPROGRAMMERING  
+## Skalet används i Moment 2_1 i Backendkursen   i programmet WEBBPROGRAMMERING  
 Fungerar som en server för ett REST API
 
 ### Databas
@@ -31,7 +31,7 @@ enddate date NULL
 description text NULL      
 postcreated timestamp NOT NULL  
 
-## Ibstallation av DB
+## Installation av DB
 För att installera databasen kör:
 **node install**
 
